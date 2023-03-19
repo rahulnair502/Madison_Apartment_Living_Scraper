@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[49]:
-
 
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -21,10 +16,6 @@ try:
     import configparser
 except ImportError:
     import ConfigParser as configparser
-
-
-# In[50]:
-
 
 def newPage(driver):
     #this piece of code locates the buttons to change page so all pages can be scraped
@@ -46,15 +37,6 @@ def newPage(driver):
     
     return arr2
         
-       
-        
-    
-    
-
-
-# In[51]:
-
-
 def individualApts(driver)  :
     
     #this code gets the html
@@ -108,17 +90,8 @@ def individualApts(driver)  :
          
                 arr1.append([title, address.encode('ascii', 'ignore').decode('ascii'),rent_value,epic_distance,uw_distance])
        
-                
-
-               
-            
-    
     driver2.close()
     return arr1
-
-
-# In[52]:
-
 
 def accessMAL(no_beds, max_rent, baths_any,
                        bath_1, bath_2, bath_3, 
@@ -230,18 +203,6 @@ def accessMAL(no_beds, max_rent, baths_any,
     arr = arr + newPage(driver)
     
     return arr
-    
-            
-            
-            
-    
-    
-   
-    
-
-
-# In[53]:
-
 
 def round_to_nearest_100(number):
     number = int(number)
@@ -252,10 +213,6 @@ def round_to_nearest_100(number):
         return 5000
     else:
         return str(round(number / 100) * 100)
-
-
-# In[61]:
-
 
 def con_extraction():
     
@@ -296,16 +253,6 @@ def con_extraction():
     return arr
     
   
-    
-
-
- 
-
-
-# In[62]:
-
-
-
 def main():
     con_extraction()
     arr = con_extraction()
@@ -313,10 +260,6 @@ def main():
             writer = csv.writer(file)
             writer.writerows(arr)
 main()
-
-
-# In[ ]:
-
 
 
 
